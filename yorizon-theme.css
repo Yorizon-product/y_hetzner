@@ -1,0 +1,455 @@
+/*
+ * Yorizon JupyterLab Theme
+ * Brand-aligned dark theme with generous spacing for beginners
+ * Colors derived from Yorizon design system (oklch green/olive palette)
+ */
+
+/* ===== Google Fonts: Inter ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ===== Root Color Palette (Yorizon Dark) ===== */
+:root {
+  /* Core palette */
+  --yo-bg:             #2a2b22;
+  --yo-bg-raised:      #33342a;
+  --yo-bg-surface:     #3b3c31;
+  --yo-fg:             #eceadf;
+  --yo-fg-muted:       #a5a28e;
+  --yo-fg-subtle:      #7a7866;
+  --yo-primary:        #c8e600;  /* Bright lime — the Yorizon accent */
+  --yo-primary-dim:    #a3bc00;
+  --yo-primary-glow:   rgba(200, 230, 0, 0.08);
+  --yo-border:         #4a4c3a;
+  --yo-border-subtle:  #3d3f30;
+  --yo-card-bg:        #31322a;
+  --yo-code-bg:        #282920;
+  --yo-error:          #e85d5d;
+  --yo-success:        #7fcc5a;
+  --yo-info:           #5db8e8;
+  --yo-radius:         10px;
+  --yo-radius-lg:      14px;
+}
+
+/* ===== Global Overrides ===== */
+body,
+.jp-LabShell,
+#jupyterlab-splash {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+  background-color: var(--yo-bg) !important;
+  color: var(--yo-fg) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Top Menu Bar ===== */
+#jp-top-panel,
+.jp-MenuBar {
+  background: var(--yo-bg) !important;
+  border-bottom: 1px solid var(--yo-border-subtle) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  padding: 2px 8px !important;
+}
+
+.jp-MenuBar-item {
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  transition: background 0.15s ease !important;
+}
+
+.jp-MenuBar-item:hover {
+  background: var(--yo-bg-surface) !important;
+}
+
+/* ===== Sidebar ===== */
+.jp-SideBar,
+#jp-left-stack,
+#jp-right-stack {
+  background: var(--yo-bg) !important;
+  border-right: 1px solid var(--yo-border-subtle) !important;
+}
+
+.jp-SideBar .lm-TabBar-tab {
+  border-radius: 8px !important;
+  margin: 4px !important;
+}
+
+.jp-SideBar .lm-TabBar-tab.lm-mod-current {
+  background: var(--yo-bg-surface) !important;
+}
+
+/* File browser */
+.jp-DirListing-content {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+}
+
+.jp-DirListing-item {
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  margin: 1px 4px !important;
+}
+
+.jp-DirListing-item:hover {
+  background: var(--yo-bg-surface) !important;
+}
+
+.jp-DirListing-item.jp-mod-selected {
+  background: var(--yo-primary-glow) !important;
+  color: var(--yo-primary) !important;
+}
+
+/* ===== Toolbar ===== */
+.jp-Toolbar {
+  background: var(--yo-bg-raised) !important;
+  border-bottom: 1px solid var(--yo-border-subtle) !important;
+  padding: 4px 12px !important;
+  min-height: 44px !important;
+}
+
+.jp-ToolbarButton .jp-ToolbarButtonComponent {
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+  transition: all 0.15s ease !important;
+}
+
+.jp-ToolbarButton .jp-ToolbarButtonComponent:hover {
+  background: var(--yo-bg-surface) !important;
+}
+
+/* ===== Notebook Content Area ===== */
+.jp-Notebook {
+  background: var(--yo-bg) !important;
+  padding: 20px 0 !important;
+}
+
+.jp-NotebookPanel {
+  background: var(--yo-bg) !important;
+}
+
+/* ===== Cell Spacing — Generous & Breathable ===== */
+.jp-Cell {
+  margin: 0 auto 16px auto !important;
+  max-width: 960px !important;
+  padding: 0 24px !important;
+}
+
+.jp-Notebook .jp-Cell:not(.jp-mod-active) {
+  opacity: 0.92;
+  transition: opacity 0.2s ease;
+}
+
+.jp-Notebook .jp-Cell:not(.jp-mod-active):hover {
+  opacity: 1;
+}
+
+/* ===== Markdown Cells — The Reading Experience ===== */
+.jp-MarkdownOutput {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.75 !important;
+  color: var(--yo-fg) !important;
+  padding: 20px 28px !important;
+}
+
+.jp-MarkdownOutput h1 {
+  font-size: 2.2em !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  color: var(--yo-fg) !important;
+  margin-top: 0.5em !important;
+  margin-bottom: 0.6em !important;
+  padding-bottom: 0.3em !important;
+  border-bottom: 2px solid var(--yo-primary) !important;
+}
+
+.jp-MarkdownOutput h2 {
+  font-size: 1.6em !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--yo-fg) !important;
+  margin-top: 1.8em !important;
+  margin-bottom: 0.8em !important;
+  padding-bottom: 0.25em !important;
+  border-bottom: 1px solid var(--yo-border) !important;
+}
+
+.jp-MarkdownOutput h3 {
+  font-size: 1.25em !important;
+  font-weight: 600 !important;
+  color: var(--yo-primary-dim) !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.6em !important;
+}
+
+.jp-MarkdownOutput p {
+  margin-bottom: 1em !important;
+  max-width: 72ch !important;
+}
+
+.jp-MarkdownOutput strong {
+  font-weight: 600 !important;
+  color: var(--yo-fg) !important;
+}
+
+.jp-MarkdownOutput a {
+  color: var(--yo-primary) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: border-color 0.15s ease !important;
+}
+
+.jp-MarkdownOutput a:hover {
+  border-bottom-color: var(--yo-primary) !important;
+}
+
+.jp-MarkdownOutput code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+  font-size: 0.88em !important;
+  background: var(--yo-code-bg) !important;
+  color: var(--yo-primary) !important;
+  padding: 2px 7px !important;
+  border-radius: 5px !important;
+  border: 1px solid var(--yo-border-subtle) !important;
+}
+
+.jp-MarkdownOutput ul,
+.jp-MarkdownOutput ol {
+  padding-left: 1.5em !important;
+  margin-bottom: 1em !important;
+}
+
+.jp-MarkdownOutput li {
+  margin-bottom: 0.5em !important;
+  line-height: 1.7 !important;
+}
+
+.jp-MarkdownOutput blockquote {
+  border-left: 3px solid var(--yo-primary) !important;
+  background: var(--yo-primary-glow) !important;
+  padding: 12px 20px !important;
+  margin: 1em 0 !important;
+  border-radius: 0 var(--yo-radius) var(--yo-radius) 0 !important;
+  color: var(--yo-fg-muted) !important;
+  font-size: 0.95em !important;
+}
+
+.jp-MarkdownOutput blockquote strong {
+  color: var(--yo-primary-dim) !important;
+}
+
+.jp-MarkdownOutput hr {
+  border: none !important;
+  height: 1px !important;
+  background: var(--yo-border) !important;
+  margin: 2.5em 0 !important;
+}
+
+/* ===== Code Cells — The Interactive Part ===== */
+.jp-CodeCell {
+  border-radius: var(--yo-radius-lg) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--yo-border-subtle) !important;
+  background: var(--yo-card-bg) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.jp-CodeCell:hover {
+  border-color: var(--yo-border) !important;
+}
+
+.jp-CodeCell.jp-mod-active {
+  border-color: var(--yo-primary) !important;
+  box-shadow: 0 0 0 1px var(--yo-primary), 0 0 20px var(--yo-primary-glow) !important;
+}
+
+/* Input area */
+.jp-InputArea {
+  background: var(--yo-code-bg) !important;
+}
+
+.jp-InputArea-editor {
+  background: var(--yo-code-bg) !important;
+  border: none !important;
+  padding: 16px 20px !important;
+}
+
+/* Code editor text */
+.jp-CodeMirrorEditor .cm-editor,
+.jp-CodeMirrorEditor .cm-content {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Input prompt — the [1]: labels */
+.jp-InputPrompt {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  color: var(--yo-fg-subtle) !important;
+  min-width: 60px !important;
+  padding-top: 18px !important;
+}
+
+.jp-Cell.jp-mod-active .jp-InputPrompt {
+  color: var(--yo-primary-dim) !important;
+}
+
+/* Output prompt */
+.jp-OutputPrompt {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  color: var(--yo-fg-subtle) !important;
+  min-width: 60px !important;
+}
+
+/* ===== Output Area ===== */
+.jp-OutputArea {
+  background: var(--yo-card-bg) !important;
+  padding: 0 !important;
+}
+
+.jp-OutputArea-output {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+  padding: 14px 20px !important;
+  color: var(--yo-fg) !important;
+  border-top: 1px solid var(--yo-border-subtle) !important;
+}
+
+/* Output pre/code blocks */
+.jp-OutputArea-output pre {
+  font-family: 'JetBrains Mono', monospace !important;
+  white-space: pre-wrap !important;
+}
+
+/* Error output */
+.jp-OutputArea-output[data-mime-type="application/vnd.jupyter.stderr"] {
+  background: rgba(232, 93, 93, 0.08) !important;
+  color: var(--yo-error) !important;
+}
+
+/* ===== Cell Action Buttons (the side buttons) ===== */
+.jp-cell-toolbar {
+  background: transparent !important;
+  border: none !important;
+}
+
+.jp-cell-toolbar .jp-ToolbarButtonComponent {
+  background: var(--yo-bg-surface) !important;
+  border-radius: 6px !important;
+  opacity: 0.6 !important;
+  transition: opacity 0.15s ease !important;
+}
+
+.jp-cell-toolbar .jp-ToolbarButtonComponent:hover {
+  opacity: 1 !important;
+  background: var(--yo-bg-surface) !important;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--yo-border) !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yo-fg-subtle) !important;
+}
+
+/* ===== Tab Bar ===== */
+.lm-TabBar-tab {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+  border-radius: 8px 8px 0 0 !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--yo-fg-muted) !important;
+  transition: all 0.15s ease !important;
+}
+
+.lm-TabBar-tab.lm-mod-current {
+  background: var(--yo-bg) !important;
+  color: var(--yo-fg) !important;
+  border-bottom: 2px solid var(--yo-primary) !important;
+}
+
+/* ===== Status Bar ===== */
+#jp-bottom-panel,
+.jp-StatusBar {
+  background: var(--yo-bg-raised) !important;
+  border-top: 1px solid var(--yo-border-subtle) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  color: var(--yo-fg-muted) !important;
+}
+
+/* ===== Kernel status indicator ===== */
+.jp-Toolbar-kernelStatus {
+  border-radius: 50% !important;
+}
+
+/* ===== Dialog/Modal ===== */
+.jp-Dialog-content {
+  background: var(--yo-card-bg) !important;
+  border: 1px solid var(--yo-border) !important;
+  border-radius: var(--yo-radius-lg) !important;
+  font-family: 'Inter', sans-serif !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ===== Selection & Focus States ===== */
+::selection {
+  background: rgba(200, 230, 0, 0.25) !important;
+  color: inherit !important;
+}
+
+/* ===== Tooltip ===== */
+.jp-Tooltip {
+  background: var(--yo-card-bg) !important;
+  border: 1px solid var(--yo-border) !important;
+  border-radius: var(--yo-radius) !important;
+  font-family: 'Inter', sans-serif !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ===== Notification (toast) ===== */
+.jp-Notification {
+  font-family: 'Inter', sans-serif !important;
+  border-radius: var(--yo-radius) !important;
+}
+
+/* ===== CodeMirror Syntax Colors (Yorizon-tinted) ===== */
+.cm-editor .cm-comment { color: #7a7866 !important; font-style: italic; }
+.cm-editor .cm-keyword { color: #c8e600 !important; font-weight: 500; }
+.cm-editor .cm-string  { color: #a3d977 !important; }
+.cm-editor .cm-number  { color: #e8c65d !important; }
+.cm-editor .cm-variable { color: var(--yo-fg) !important; }
+.cm-editor .cm-operator { color: #c8e600 !important; }
+.cm-editor .cm-builtin  { color: #5db8e8 !important; }
+.cm-editor .cm-property  { color: #d4cfb8 !important; }
+.cm-editor .cm-punctuation { color: var(--yo-fg-muted) !important; }
+.cm-editor .cm-activeLine { background: rgba(200, 230, 0, 0.04) !important; }
+.cm-editor .cm-selectionMatch { background: rgba(200, 230, 0, 0.12) !important; }
+.cm-editor .cm-cursor { border-left-color: var(--yo-primary) !important; border-left-width: 2px !important; }
+.cm-editor .cm-gutters { background: var(--yo-code-bg) !important; border-right: none !important; }
+.cm-editor .cm-lineNumbers .cm-gutterElement { color: var(--yo-fg-subtle) !important; font-size: 12px !important; }
+
+/* ===== Smooth transitions on all interactive elements ===== */
+button, a, .lm-TabBar-tab, .jp-DirListing-item, .jp-ToolbarButtonComponent {
+  transition: all 0.15s ease !important;
+}

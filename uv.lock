@@ -703,6 +703,15 @@ wheels = [
 ]
 
 [[package]]
+name = "jupyterlab-night"
+version = "0.5.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b3/32/8c995aeaece95b72fe4aab4447e87179944f5faedf7a9a4ebd4ad34d608d/jupyterlab_night-0.5.2.tar.gz", hash = "sha256:347e3397d4b38c475fa11cd1a8c34a4ca99266448c726f8958c90626c292c188", size = 327595, upload-time = "2025-08-28T08:49:24.928Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5d/0d/dc7de6951c3b08cf3f4a4c57e1780ecdd2431181c8024b316a63cc99321b/jupyterlab_night-0.5.2-py3-none-any.whl", hash = "sha256:0da536f614954590d528314573036c1f3b641f69dcf1bcdd532e9ef86734845e", size = 16862, upload-time = "2025-08-28T08:49:23.469Z" },
+]
+
+[[package]]
 name = "jupyterlab-pygments"
 version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1395,10 +1404,12 @@ source = { virtual = "." }
 dependencies = [
     { name = "bash-kernel" },
     { name = "jupyter" },
+    { name = "jupyterlab-night" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "bash-kernel", specifier = ">=0.10.0" },
     { name = "jupyter", specifier = ">=1.1.1" },
+    { name = "jupyterlab-night", specifier = ">=0.5.2" },
 ]
