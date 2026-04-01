@@ -1,0 +1,51 @@
+{
+  "name": "jupyterlab-yorizon-theme",
+  "version": "0.1.0",
+  "description": "Yorizon dark theme for JupyterLab",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension",
+    "jupyterlab-theme"
+  ],
+  "license": "MIT",
+  "author": "Yorizon",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.css"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yorizon-product/y_hetzner"
+  },
+  "scripts": {
+    "build": "jlpm build:lib && jlpm build:labextension:dev",
+    "build:prod": "jlpm build:lib && jlpm build:labextension",
+    "build:lib": "tsc",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "clean": "jlpm clean:lib && jlpm clean:labextension",
+    "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
+    "clean:labextension": "rimraf jupyterlab_yorizon_theme/labextension",
+    "install:extension": "jlpm build",
+    "watch": "run-p watch:src watch:labextension",
+    "watch:src": "tsc -w",
+    "watch:labextension": "jupyter labextension watch ."
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^4.0.0",
+    "@jupyterlab/apputils": "^4.0.0"
+  },
+  "devDependencies": {
+    "@jupyterlab/builder": "^4.0.0",
+    "rimraf": "~5.0.0",
+    "typescript": "~5.0.0"
+  },
+  "jupyterlab": {
+    "extension": true,
+    "themePath": "style/index.css",
+    "outputDir": "jupyterlab_yorizon_theme/labextension"
+  }
+}

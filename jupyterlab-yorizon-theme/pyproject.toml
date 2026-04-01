@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling>=1.5.0", "jupyterlab>=4.0.0,<5", "hatch-nodejs-version>=0.3.2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupyterlab-yorizon-theme"
+version = "0.1.0"
+description = "Yorizon dark theme for JupyterLab"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+
+[tool.hatch.build.targets.sdist]
+exclude = [".github", "binder"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"jupyterlab_yorizon_theme/labextension" = "share/jupyter/labextensions/jupyterlab-yorizon-theme"
+"install.json" = "share/jupyter/labextensions/jupyterlab-yorizon-theme/install.json"

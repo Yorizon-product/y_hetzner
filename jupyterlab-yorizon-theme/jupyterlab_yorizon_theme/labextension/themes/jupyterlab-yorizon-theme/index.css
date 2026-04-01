@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap);
 /*
  * Yorizon JupyterLab Theme
  * Brand-aligned dark theme with generous spacing for beginners
@@ -5,7 +6,6 @@
  */
 
 /* ===== Google Fonts: Inter ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ===== Root Color Palette (Yorizon Dark) ===== */
 :root {
@@ -673,3 +673,4 @@ svg.jp-icon-selectable path[fill], path.jp-icon-selectable[fill] { fill: var(--y
 button, a, .lm-TabBar-tab, .jp-DirListing-item, .jp-ToolbarButtonComponent {
   transition: all 0.15s ease !important;
 }
+
