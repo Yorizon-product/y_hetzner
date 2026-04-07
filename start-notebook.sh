@@ -55,6 +55,11 @@ echo ""
 echo "Installing dependencies..."
 uv sync
 echo "Done."
+
+# Ensure bash kernel is registered
+echo "Registering bash kernel..."
+uv run python -m bash_kernel.install --quiet 2>/dev/null || uv run python -m bash_kernel.install
+echo "Done."
 echo ""
 
 # Pick a port (default 8888, override with PORT env var)
