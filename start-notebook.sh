@@ -29,6 +29,28 @@ else
 fi
 echo ""
 
+# Load or create Jupyter token from 1Password
+JUPYTER_1P_REF="op://terminal access/Jupyter Notebook Token/credential"
+if command -v op &>/dev/null; then
+  JUPYTER_TOKEN="$(op read "$JUPYTER_1P_REF" 2>/dev/null)" || true
+  if [ -z "$JUPYTER_TOKEN" ]; then
+    echo "Creating Jupyter token in 1Password..."
+    JUPYTER_TOKEN="$(openssl rand -hex 24)"
+    op item create \
+      --category=password \
+      --vault='terminal access' \
+      --title='Jupyter Notebook Token' \
+      "credential=$JUPYTER_TOKEN" >/dev/null
+    echo "Done — stored in 1Password."
+  else
+    echo "Jupyter token loaded from 1Password."
+  fi
+else
+  echo "Warning: 1Password CLI (op) not available, using random session token."
+  JUPYTER_TOKEN="$(openssl rand -hex 24)"
+fi
+echo ""
+
 # Sync dependencies
 echo "Installing dependencies..."
 uv sync
@@ -45,5 +67,6 @@ echo ""
 uv run jupyter lab \
   --no-browser \
   --port="${PORT}" \
+  --IdentityProvider.token="${JUPYTER_TOKEN}" \
   --ServerApp.tornado_settings='{"headers":{"Content-Security-Policy":"default-src '"'"'self'"'"' '"'"'unsafe-inline'"'"' '"'"'unsafe-eval'"'"' https://fonts.googleapis.com https://fonts.gstatic.com data: blob:;"}}' \
   hetzner-cli-101.ipynb
