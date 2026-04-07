@@ -669,6 +669,40 @@ svg.jp-icon-selectable path[fill], path.jp-icon-selectable[fill] { fill: var(--y
 .cm-editor .cm-gutters { background: var(--yo-code-bg) !important; border-right: none !important; }
 .cm-editor .cm-lineNumbers .cm-gutterElement { color: var(--yo-fg-subtle) !important; font-size: 12px !important; }
 
+/* ===== ANSI Terminal Colors — Readable on dark background ===== */
+.ansi-black-fg   { color: #6b6957 !important; }
+.ansi-red-fg     { color: #e85d5d !important; }
+.ansi-green-fg   { color: #7fcc5a !important; }
+.ansi-yellow-fg  { color: #e8c65d !important; }
+.ansi-blue-fg    { color: #5db8e8 !important; }
+.ansi-magenta-fg { color: #d48ce8 !important; }
+.ansi-cyan-fg    { color: #5dd8d8 !important; }
+.ansi-white-fg   { color: #eceadf !important; }
+
+.ansi-bright-black-fg   { color: #8a8772 !important; }
+.ansi-bright-red-fg     { color: #f07070 !important; }
+.ansi-bright-green-fg   { color: #9ddf7a !important; }
+.ansi-bright-yellow-fg  { color: #f0d870 !important; }
+.ansi-bright-blue-fg    { color: #7acaf0 !important; }
+.ansi-bright-magenta-fg { color: #e0a0f0 !important; }
+.ansi-bright-cyan-fg    { color: #70e8e8 !important; }
+.ansi-bright-white-fg   { color: #f5f3e8 !important; }
+
+.ansi-black-bg   { background-color: #2a2b22 !important; }
+.ansi-red-bg     { background-color: #5a2020 !important; }
+.ansi-green-bg   { background-color: #2a4a1a !important; }
+.ansi-yellow-bg  { background-color: #4a3a10 !important; }
+.ansi-blue-bg    { background-color: #1a3a5a !important; }
+.ansi-magenta-bg { background-color: #4a2050 !important; }
+.ansi-cyan-bg    { background-color: #1a4a4a !important; }
+.ansi-white-bg   { background-color: #eceadf !important; }
+
+/* Default output text (no ANSI codes) */
+.jp-OutputArea-output pre,
+.jp-OutputArea-output code {
+  color: var(--yo-fg) !important;
+}
+
 /* ===== Smooth transitions on all interactive elements ===== */
 button, a, .lm-TabBar-tab, .jp-DirListing-item, .jp-ToolbarButtonComponent {
   transition: all 0.15s ease !important;
