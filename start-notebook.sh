@@ -13,6 +13,22 @@ if ! command -v uv &>/dev/null; then
   exit 1
 fi
 
+# Load HCLOUD_TOKEN from 1Password if not already set
+if [ -z "$HCLOUD_TOKEN" ]; then
+  if command -v op &>/dev/null; then
+    echo "Loading HCLOUD_TOKEN from 1Password..."
+    export HCLOUD_TOKEN="$(op read 'op://terminal access/Hetzner Cloud API Key/credential')"
+    echo "Done."
+  else
+    echo "Warning: HCLOUD_TOKEN is not set and 1Password CLI (op) is not installed."
+    echo "  Set it manually:  export HCLOUD_TOKEN=\"your-token\""
+    echo "  Or install op:    https://developer.1password.com/docs/cli/"
+  fi
+else
+  echo "HCLOUD_TOKEN already set."
+fi
+echo ""
+
 # Sync dependencies
 echo "Installing dependencies..."
 uv sync
